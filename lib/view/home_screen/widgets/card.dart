@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:nexteons/controller/homeScreen_Controller.dart';
+import 'package:provider/provider.dart';
 
 class CardS extends StatelessWidget {
   const CardS({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final value = Provider.of<HomeScreenController>(context);
     return Container(
       height: 640,
       child: ListView.separated(
@@ -14,7 +17,7 @@ class CardS extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Name",
+                    value.message.[index].toString(),
                     style: TextStyle(
                       fontSize: 18,
                     ),

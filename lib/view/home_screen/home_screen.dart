@@ -1,10 +1,29 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:nexteons/controller/homeScreen_Controller.dart';
 import 'package:nexteons/view/home_screen/widgets/card.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    fetchData();
+    super.initState();
+  }
+
+  fetchData() async {
+    Provider.of<HomeScreenController>(
+      context,
+    ).fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
